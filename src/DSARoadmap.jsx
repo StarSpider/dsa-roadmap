@@ -32,7 +32,7 @@ const TOPICS = [
       { t: "GFG", n: "Time Complexity Quiz", u: "https://read.learnyard.com/dsa/quiz-time-complexity/" },
       { t: "GFG", n: "Understanding of Time Complexity", u: "https://www.geeksforgeeks.org/quizzes/quiz-on-complexity-analysis-for-dsa/" },
       { t: "GFG", n: "Practice of Time Complexity", u: "https://www.bosscoderacademy.com/practice-test/time-space-complexity-mcq-dsa" },
-    ]
+    ],
   },
   {
     num: "M4.2",
