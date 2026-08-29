@@ -57,7 +57,7 @@ const TOPICS = [
     easy: [
       { t: "GFG", n: "Nth Fibonacci Number", u: "https://www.geeksforgeeks.org/problems/nth-fibonacci-number1335/1" },
       { t: "GFG", n: "Factorial of Number", u: "https://www.geeksforgeeks.org/problems/factorial5739/1" },
-      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/reverse-coding2452/1" },
+      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/sum-of-first-n-natural-numbers/1" },
     ],
     med: [
       { t: "LC", n: "Pow(x, n)", u: "https://leetcode.com/problems/powx-n/" },
