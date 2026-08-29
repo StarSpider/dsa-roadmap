@@ -3,11 +3,52 @@ import { ChevronDown, BookOpen, Play, Heart } from "lucide-react";
 
 const TOPICS = [
   {
-    num: "M4",
-    name: "Recursion + Time Complexity",
+    num: "M4.1",
+    name: "Time & Space Complexity",
+    gfg: "https://www.geeksforgeeks.org/time-complexity-and-space-complexity/",
+    striver: "https://www.youtube.com/watch?v=FPu9Uld7W-E",
+    kunal: "https://www.youtube.com/watch?v=mV3wrLBbuuE",
+    patterns: [
+      {
+        n: "Big-O Notation & Asymptotic Analysis",
+        gfg: "https://www.geeksforgeeks.org/analysis-algorithms-big-o-analysis/",
+        striver: "https://www.youtube.com/watch?v=FPu9Uld7W-E",
+        kunal: "https://www.youtube.com/watch?v=mV3wrLBbuuE",
+      },
+      {
+        n: "Space Complexity & Auxiliary Space",
+        gfg: "https://www.geeksforgeeks.org/g-fact-86/",
+        striver: "https://www.youtube.com/watch?v=FPu9Uld7W-E",
+        kunal: "https://www.youtube.com/watch?v=mV3wrLBbuuE",
+      },
+      {
+        n: "Recurrence Relations (Master Theorem)",
+        gfg: "https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/",
+        striver: "https://www.youtube.com/watch?v=4CqDppmyr7o",
+        kunal: "https://www.youtube.com/watch?v=mV3wrLBbuuE",
+      },
+    ],
+    easy: [
+      { t: "GFG", n: "Time Complexity Quiz", u: "https://www.geeksforgeeks.org/quiz/analysis-of-algorithms-gq/" },
+      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/sum-of-first-n-natural-numbers/1" },
+      { t: "GFG", n: "Find Max in Array", u: "https://www.geeksforgeeks.org/problems/find-maximum-and-minimum-element-in-an-array2305/1" },
+    ],
+    med: [
+      { t: "LC", n: "Two Sum (compare O(n²) vs O(n))", u: "https://leetcode.com/problems/two-sum/" },
+      { t: "LC", n: "Best Time to Buy and Sell Stock", u: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
+      { t: "LC", n: "Maximum Subarray (Kadane O(n))", u: "https://leetcode.com/problems/maximum-subarray/" },
+    ],
+    hard: [
+      { t: "LC", n: "Median of Two Sorted Arrays O(log n)", u: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
+      { t: "LC", n: "Sliding Window Maximum O(n)", u: "https://leetcode.com/problems/sliding-window-maximum/" },
+    ],
+  },
+  {
+    num: "M4.2",
+    name: "Recursion",
     gfg: "https://www.geeksforgeeks.org/introduction-to-recursion-data-structure-and-algorithm-tutorials/",
     striver: "https://www.youtube.com/playlist?list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9",
-    kunal: "https://www.youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ",
+    kunal: "https://www.youtube.com/watch?v=M2uO2nMT0Bk",
     patterns: [
       {
         n: "Recursion Fundamentals",
@@ -668,7 +709,7 @@ export default function DSARoadmap() {
     <div className="min-h-screen bg-slate-900 text-slate-200 px-4 py-6">
       <header className="text-center mb-4">
         <h1 className="text-2xl font-bold text-slate-50">
-          🗺 DSA Roadmap — <span className="text-amber-500">15 Topics · 17 Patterns</span>
+          🗺 DSA Roadmap — <span className="text-amber-500">16 Topics · 20 Patterns</span>
         </h1>
         <p className="text-slate-500 text-xs mt-1.5">
           Click any topic · GFG Article + Striver + Kunal + Patterns + Easy / Medium / Hard problems
