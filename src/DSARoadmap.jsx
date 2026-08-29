@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, BookOpen, Play, Heart } from "lucide-react";
+import { ChevronDown, BookOpen, Play, Heart, Check, RotateCcw } from "lucide-react";
 
 const TOPICS = [
   {
@@ -29,18 +29,18 @@ const TOPICS = [
       },
     ],
     easy: [
-      { t: "GFG", n: "Time Complexity Quiz", u: "https://read.learnyard.com/dsa/quiz-time-complexity/" },
-      { t: "GFG", n: "Understanding of Time Complexity", u: "https://www.geeksforgeeks.org/quizzes/quiz-on-complexity-analysis-for-dsa/" },
-      { t: "GFG", n: "Practice of Time Complexity", u: "https://www.bosscoderacademy.com/practice-test/time-space-complexity-mcq-dsa" },
+      { t: "GFG", n: "Time Complexity Quiz", u: "https://www.geeksforgeeks.org/quiz/analysis-of-algorithms-gq/" },
+      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/sum-of-first-n-natural-numbers/1" },
+      { t: "GFG", n: "Find Max in Array", u: "https://www.geeksforgeeks.org/problems/find-maximum-and-minimum-element-in-an-array2305/1" },
     ],
     med: [
-      // { t: "LC", n: "Two Sum (compare O(n²) vs O(n))", u: "https://leetcode.com/problems/two-sum/" },
-      // { t: "LC", n: "Best Time to Buy and Sell Stock", u: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
-      // { t: "LC", n: "Maximum Subarray (Kadane O(n))", u: "https://leetcode.com/problems/maximum-subarray/" },
+      { t: "LC", n: "Two Sum (compare O(n²) vs O(n))", u: "https://leetcode.com/problems/two-sum/" },
+      { t: "LC", n: "Best Time to Buy and Sell Stock", u: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
+      { t: "LC", n: "Maximum Subarray (Kadane O(n))", u: "https://leetcode.com/problems/maximum-subarray/" },
     ],
     hard: [
-      // { t: "LC", n: "Median of Two Sorted Arrays O(log n)", u: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
-      // { t: "LC", n: "Sliding Window Maximum O(n)", u: "https://leetcode.com/problems/sliding-window-maximum/" },
+      { t: "LC", n: "Median of Two Sorted Arrays O(log n)", u: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
+      { t: "LC", n: "Sliding Window Maximum O(n)", u: "https://leetcode.com/problems/sliding-window-maximum/" },
     ],
   },
   {
@@ -66,7 +66,7 @@ const TOPICS = [
     easy: [
       { t: "GFG", n: "Nth Fibonacci Number", u: "https://www.geeksforgeeks.org/problems/nth-fibonacci-number1335/1" },
       { t: "GFG", n: "Factorial of Number", u: "https://www.geeksforgeeks.org/problems/factorial5739/1" },
-      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/reverse-coding2452/1" },
+      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/sum-of-first-n-natural-numbers/1" },
     ],
     med: [
       { t: "LC", n: "Pow(x, n)", u: "https://leetcode.com/problems/powx-n/" },
@@ -609,42 +609,71 @@ function ResourceBtn({ href, kind, label }) {
   );
 }
 
-function QuestionColumn({ title, labelClass, items }) {
+function QuestionColumn({ title, labelClass, items, topicNum, diff, done, toggle }) {
   return (
     <div>
       <div className={`${labelClass} inline-block text-[10px] font-bold px-2 py-0.5 rounded mb-2`}>
         {title}
       </div>
       <div className="flex flex-col gap-1">
-        {items.map((q, i) => (
-          <div key={i} className="flex items-start gap-1.5">
-            <span className="text-slate-600 text-[10px] w-3 shrink-0 pt-0.5">{i + 1}.</span>
-            <a
-              href={q.u}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${
-                q.t === "GFG"
-                  ? "bg-emerald-900/60 text-emerald-200 hover:bg-emerald-800"
-                  : "bg-orange-900/60 text-orange-200 hover:bg-orange-800"
-              } text-[10px] px-1.5 py-0.5 rounded leading-relaxed transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400`}
-            >
-              {q.n}
-            </a>
-          </div>
-        ))}
+        {items.map((q, i) => {
+          const key = `${topicNum}|${diff}|${i}`;
+          const isDone = !!done[key];
+          return (
+            <div key={i} className="flex items-start gap-1.5">
+              <button
+                onClick={() => toggle(key)}
+                aria-label={isDone ? `Mark ${q.n} not done` : `Mark ${q.n} done`}
+                aria-pressed={isDone}
+                className={`shrink-0 mt-0.5 w-3.5 h-3.5 rounded-[3px] border flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+                  isDone
+                    ? "bg-emerald-600 border-emerald-500"
+                    : "bg-slate-800 border-slate-600 hover:border-slate-400"
+                }`}
+              >
+                {isDone && <Check size={9} strokeWidth={4} className="text-white" />}
+              </button>
+              <a
+                href={q.u}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${
+                  q.t === "GFG"
+                    ? "bg-emerald-900/60 text-emerald-200 hover:bg-emerald-800"
+                    : "bg-orange-900/60 text-orange-200 hover:bg-orange-800"
+                } text-[10px] px-1.5 py-0.5 rounded leading-relaxed transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+                  isDone ? "line-through opacity-50" : ""
+                }`}
+              >
+                {q.n}
+              </a>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 }
 
-function TopicCard({ topic }) {
+function TopicCard({ topic, done, toggle }) {
   const [open, setOpen] = useState(false);
+
+  const total = topic.easy.length + topic.med.length + topic.hard.length;
+  const completed = ["easy", "med", "hard"].reduce(
+    (acc, diff) =>
+      acc + topic[diff].filter((_, i) => done[`${topic.num}|${diff}|${i}`]).length,
+    0
+  );
+  const allDone = completed === total;
 
   return (
     <div
       className={`bg-slate-800 border-2 rounded-xl overflow-hidden transition-colors ${
-        open ? "border-amber-500" : "border-slate-700 hover:border-slate-600"
+        allDone
+          ? "border-emerald-600"
+          : open
+            ? "border-amber-500"
+            : "border-slate-700 hover:border-slate-600"
       }`}
     >
       <button
@@ -656,6 +685,17 @@ function TopicCard({ topic }) {
             {topic.num}
           </span>
           <span className="font-semibold text-sm text-slate-100 truncate">{topic.name}</span>
+          <span
+            className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${
+              allDone
+                ? "bg-emerald-900 text-emerald-300"
+                : completed > 0
+                  ? "bg-amber-900 text-amber-300"
+                  : "bg-slate-700 text-slate-400"
+            }`}
+          >
+            {completed}/{total}
+          </span>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
           <ResourceBtn href={topic.gfg} kind="gfg" label="GFG" />
@@ -693,9 +733,33 @@ function TopicCard({ topic }) {
               Practice Problems
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <QuestionColumn title="🟢 Easy (3)" labelClass="bg-green-950 text-green-300" items={topic.easy} />
-              <QuestionColumn title="🟡 Medium (3)" labelClass="bg-amber-950 text-amber-300" items={topic.med} />
-              <QuestionColumn title="🔴 Hard (2)" labelClass="bg-red-950 text-red-300" items={topic.hard} />
+              <QuestionColumn
+                title="🟢 Easy (3)"
+                labelClass="bg-green-950 text-green-300"
+                items={topic.easy}
+                topicNum={topic.num}
+                diff="easy"
+                done={done}
+                toggle={toggle}
+              />
+              <QuestionColumn
+                title="🟡 Medium (3)"
+                labelClass="bg-amber-950 text-amber-300"
+                items={topic.med}
+                topicNum={topic.num}
+                diff="med"
+                done={done}
+                toggle={toggle}
+              />
+              <QuestionColumn
+                title="🔴 Hard (2)"
+                labelClass="bg-red-950 text-red-300"
+                items={topic.hard}
+                topicNum={topic.num}
+                diff="hard"
+                done={done}
+                toggle={toggle}
+              />
             </div>
           </div>
         </div>
@@ -705,6 +769,23 @@ function TopicCard({ topic }) {
 }
 
 export default function DSARoadmap() {
+  const [done, setDone] = useState({});
+
+  const toggle = (key) =>
+    setDone((prev) => {
+      const next = { ...prev };
+      if (next[key]) delete next[key];
+      else next[key] = true;
+      return next;
+    });
+
+  const totalProblems = TOPICS.reduce(
+    (acc, t) => acc + t.easy.length + t.med.length + t.hard.length,
+    0
+  );
+  const totalDone = Object.keys(done).length;
+  const pct = totalProblems ? Math.round((totalDone / totalProblems) * 100) : 0;
+
   return (
     <div className="min-h-screen bg-slate-900 text-slate-200 px-4 py-6">
       <header className="text-center mb-4">
@@ -735,10 +816,40 @@ export default function DSARoadmap() {
         </span>
       </div>
 
+      <div className="max-w-4xl mx-auto mb-6 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3">
+        <div className="flex items-center justify-between gap-3 mb-2">
+          <span className="text-xs font-semibold text-slate-300">
+            Progress:{" "}
+            <span className="text-amber-500">
+              {totalDone}/{totalProblems}
+            </span>{" "}
+            problems solved
+          </span>
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-bold text-emerald-400">{pct}%</span>
+            {totalDone > 0 && (
+              <button
+                onClick={() => setDone({})}
+                className="inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-slate-200 border border-slate-600 hover:border-slate-500 px-2 py-1 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-amber-400"
+              >
+                <RotateCcw size={10} />
+                Reset
+              </button>
+            )}
+          </div>
+        </div>
+        <div className="h-2 bg-slate-900 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-emerald-500 transition-all duration-300"
+            style={{ width: `${pct}%` }}
+          />
+        </div>
+      </div>
+
       <main className="max-w-4xl mx-auto flex flex-col">
         {TOPICS.map((topic, i) => (
           <div key={topic.num}>
-            <TopicCard topic={topic} />
+            <TopicCard topic={topic} done={done} toggle={toggle} />
             {i < TOPICS.length - 1 && (
               <div className="flex flex-col items-center h-5" aria-hidden="true">
                 <div className="w-0.5 flex-1 bg-amber-500" />
