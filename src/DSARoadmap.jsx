@@ -30,7 +30,7 @@ const TOPICS = [
     ],
     easy: [
       { t: "GFG", n: "Time Complexity Quiz", u: "https://www.geeksforgeeks.org/quiz/analysis-of-algorithms-gq/" },
-      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/sum-of-first-n-natural-numbers/1" },
+      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/reverse-coding2452/1" },
       { t: "GFG", n: "Find Max in Array", u: "https://www.geeksforgeeks.org/problems/find-maximum-and-minimum-element-in-an-array2305/1" },
     ],
     med: [
