@@ -34,13 +34,13 @@ const TOPICS = [
       { t: "GFG", n: "Practice of Time Complexity", u: "https://www.bosscoderacademy.com/practice-test/time-space-complexity-mcq-dsa" },
     ],
     med: [
-      { t: "LC", n: "Two Sum (compare O(n²) vs O(n))", u: "https://leetcode.com/problems/two-sum/" },
-      { t: "LC", n: "Best Time to Buy and Sell Stock", u: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
-      { t: "LC", n: "Maximum Subarray (Kadane O(n))", u: "https://leetcode.com/problems/maximum-subarray/" },
+      // { t: "LC", n: "Two Sum (compare O(n²) vs O(n))", u: "https://leetcode.com/problems/two-sum/" },
+      // { t: "LC", n: "Best Time to Buy and Sell Stock", u: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
+      // { t: "LC", n: "Maximum Subarray (Kadane O(n))", u: "https://leetcode.com/problems/maximum-subarray/" },
     ],
     hard: [
-      { t: "LC", n: "Median of Two Sorted Arrays O(log n)", u: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
-      { t: "LC", n: "Sliding Window Maximum O(n)", u: "https://leetcode.com/problems/sliding-window-maximum/" },
+      // { t: "LC", n: "Median of Two Sorted Arrays O(log n)", u: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
+      // { t: "LC", n: "Sliding Window Maximum O(n)", u: "https://leetcode.com/problems/sliding-window-maximum/" },
     ],
   },
   {
