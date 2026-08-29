@@ -29,9 +29,9 @@ const TOPICS = [
       },
     ],
     easy: [
-      { t: "GFG", n: "Time Complexity Quiz", u: "https://www.geeksforgeeks.org/quiz/analysis-of-algorithms-gq/" },
-      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/reverse-coding2452/1" },
-      { t: "GFG", n: "Find Max in Array", u: "https://www.geeksforgeeks.org/problems/find-maximum-and-minimum-element-in-an-array2305/1" },
+      { t: "GFG", n: "Time Complexity Quiz", u: "https://read.learnyard.com/dsa/quiz-time-complexity/" },
+      { t: "GFG", n: "Understanding of Time Complexity", u: "https://www.geeksforgeeks.org/quizzes/quiz-on-complexity-analysis-for-dsa/" },
+      { t: "GFG", n: "Practice of Time Complexity", u: "https://www.bosscoderacademy.com/practice-test/time-space-complexity-mcq-dsa" },
     ],
     med: [
       { t: "LC", n: "Two Sum (compare O(n²) vs O(n))", u: "https://leetcode.com/problems/two-sum/" },
@@ -66,7 +66,7 @@ const TOPICS = [
     easy: [
       { t: "GFG", n: "Nth Fibonacci Number", u: "https://www.geeksforgeeks.org/problems/nth-fibonacci-number1335/1" },
       { t: "GFG", n: "Factorial of Number", u: "https://www.geeksforgeeks.org/problems/factorial5739/1" },
-      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/sum-of-first-n-natural-numbers/1" },
+      { t: "GFG", n: "Sum of N Natural Numbers", u: "https://www.geeksforgeeks.org/problems/reverse-coding2452/1" },
     ],
     med: [
       { t: "LC", n: "Pow(x, n)", u: "https://leetcode.com/problems/powx-n/" },
